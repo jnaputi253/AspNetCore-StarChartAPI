@@ -15,6 +15,14 @@ namespace StarChart.Controllers
             _context = context;
         }
 
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var storedCelestialObjects = _context.CelestialObjects;
+
+            return Ok(storedCelestialObjects);
+        }
+
         [HttpGet("{id:int}", Name = "GetById")]
         public IActionResult GetById(int id)
         {
